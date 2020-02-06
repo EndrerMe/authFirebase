@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.initForm();
   }
 
-  private initForm() {
+  private initForm(): void {
     this.loginForm = this.formBuilder.group({
       email: new FormControl(
         '', [
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  public tryLogin(e) {
+  public tryLogin(e): void {
     e.preventDefault();
     const value = this.loginForm.value;
     this.authService.doLogin(value).then((res) => {

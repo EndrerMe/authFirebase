@@ -27,7 +27,7 @@ export class RegistrationComponent implements OnInit {
     this.initForm();
   }
 
-  private initForm() {
+  private initForm(): void {
     this.registForm = this.formBuilder.group({
       email: new FormControl(
         '', [
@@ -42,7 +42,7 @@ export class RegistrationComponent implements OnInit {
     })
   }
 
-  public tryRegist(e) {
+  public tryRegist(e): void {
     e.preventDefault();
     const value = this.registForm.value;
     this.authService.doRegist(value).then((res) => {
