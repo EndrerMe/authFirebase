@@ -1,0 +1,9 @@
+<div class="registContainer">
+    <h2>Registration</h2>
+    <p *ngIf='message' [className]='isError ? "error" : "success"'>{{ message }}</p>
+    <form class="registForm" [formGroup]='registForm' (submit)='tryRegist($event)'>
+        <input type="email" placeholder='Email' class="email" formControlName='email'>
+        <input type="password" placeholder='Password' class="userPass" formControlName='password'>
+        <button (click)='tryRegist($event)'>Registration</button>
+    </form>
+</div>

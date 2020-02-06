@@ -1,0 +1,9 @@
+<div class="loginContainer">
+    <h2>Login</h2>
+    <p *ngIf='message' [className]='isError ? "error" : "success"'>{{ message }}</p>
+    <form class="loginForm" [formGroup]='loginForm' (submit)='tryLogin($event)'>
+        <input type="email" placeholder='Email' class="userName" formControlName='email'>
+        <input type="password" placeholder='Password' class="userPass" formControlName='password'>
+        <button (click)='tryLogin($event)'>Login</button>
+    </form>
+</div>

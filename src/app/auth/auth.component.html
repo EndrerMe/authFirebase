@@ -1,0 +1,5 @@
+<div class="linkContainer">
+    <a routerLink='login' [className]='activeRoute === "/auth/login" ? "active" : ""'>Login</a>
+    <a routerLink='registration' [className]='activeRoute === "/auth/registration" ? "active" : ""'>Registration</a>
+</div>
+<router-outlet></router-outlet>
