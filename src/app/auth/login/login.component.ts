@@ -1,6 +1,7 @@
 // Vendors
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 // Services
 import { AuthService } from 'src/app/shared/services';
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -44,9 +46,12 @@ export class LoginComponent implements OnInit {
     e.preventDefault();
     const value = this.loginForm.value;
     this.authService.doLogin(value).then((res) => {
+      localStorage.setItem('user', JSON.stringify(res))
       this.isError = false;
       this.message = 'You are login successfully'
-
+      setTimeout(() => {
+        this.router.navigate(['/personal-area']);
+      }, 2000)
     }, (err) => {
       this.isError = true;
       this.message = err.message;
